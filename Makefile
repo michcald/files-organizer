@@ -12,6 +12,7 @@ prepare:
 
 clean:
 	docker-compose -f ./.docker/compose.yml rm --force
+	rm -rf coverage.out
 	docker network rm $(NETWORK) || true
 
 fmt: # Formats the source code
@@ -30,6 +31,7 @@ coverage: # Requires tests to run first
 		-e README_FILE=/app/README.md \
 		-e COVERAGE_FILE=/app/coverage.out \
 		-v $(PWD):/app \
+		-w /app \
 		michcald/go-coverage
 
 analyze:

@@ -4,7 +4,7 @@ services:
   tests:
     build:
       context: ../
-      dockerfile: .ops/docker/app/Dockerfile
+      dockerfile: .docker/image/app/Dockerfile
       target: golang
     container_name: tests
     volumes:
