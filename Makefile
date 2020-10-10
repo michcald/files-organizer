@@ -22,7 +22,7 @@ fmt: # Formats the source code
 		-w /app \
 		$(GO_FMT_IMAGE) sh -c "go mod tidy; go fmt ./..."
 
-test:
+test: prepare
 	docker-compose -f ./.docker/compose.yml up --build --force-recreate --abort-on-container-exit
 
 coverage: # Requires tests to run first
